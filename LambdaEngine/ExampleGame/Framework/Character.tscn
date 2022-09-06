@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/LambdaEngine/Features/Attributes/GameplayAttributes.gd" type="Script" id=1]
+[ext_resource path="res://addons/LambdaEngine/Features/Inventory/Inventory.gd" type="Script" id=2]
+[ext_resource path="res://addons/LambdaEngine/Features/Tags/Tags.gd" type="Script" id=3]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.718859
+
+[node name="Character" type="KinematicBody"]
+
+[node name="Collision" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="Collision"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+radius = 0.368479
+height = 1.79277
+
+[node name="Abilities" type="Node" parent="."]
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 0, 0, -4.67771, 3.6869, 0.00757694 )
+
+[node name="Attributes" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="Tags" type="Node" parent="."]
+script = ExtResource( 3 )
