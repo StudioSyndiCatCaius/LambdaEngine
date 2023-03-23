@@ -1,0 +1,140 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://Demo/Maps/TestMap.gd" id="1_h406g"]
+[ext_resource type="PackedScene" path="res://Demo/Entities/GameCharacter.tscn" id="2_3kofm"]
+[ext_resource type="PackedScene" path="res://addons/lambdaengine/Systems/Zone/3D/ZoneTransit_3D.tscn" id="3_4d2dw"]
+
+[sub_resource type="Environment" id="Environment_uh5mh"]
+background_mode = 1
+background_color = Color(0.65098, 0.866667, 1, 1)
+ambient_light_color = Color(0.854902, 0.941176, 0.988235, 1)
+tonemap_white = 2.64
+ssao_enabled = true
+ssao_intensity = 6.0
+fog_enabled = true
+fog_light_color = Color(0.478431, 0.831373, 1, 1)
+fog_light_energy = 1.06
+fog_sun_scatter = 0.17
+fog_density = 0.0014
+fog_height = 431.16
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_u1y3m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6pwct"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_8jj4y"]
+albedo_color = Color(0.172549, 0.172549, 0.172549, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2c16j"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_m0i4q"]
+albedo_color = Color(0.352941, 0.352941, 0.352941, 1)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_h406g")
+
+[node name="Player" parent="." instance=ExtResource("2_3kofm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1981, 0)
+
+[node name="NPC" parent="." instance=ExtResource("2_3kofm")]
+transform = Transform3D(0.564549, 0, -0.825399, 0, 1, 0, 0.825399, 0, 0.564549, -13.0282, 1.1981, 8.20275)
+
+[node name="NPC2" parent="." instance=ExtResource("2_3kofm")]
+transform = Transform3D(-0.736121, 0, 0.67685, 0, 1, 0, -0.67685, 0, -0.736121, 11.2605, 1.1981, -5.09832)
+
+[node name="NPC3" parent="." instance=ExtResource("2_3kofm")]
+transform = Transform3D(-0.73862, 0.00494199, -0.674104, 0.00436012, 0.999987, 0.0025537, 0.674108, -0.00105297, -0.738632, -8.56872, 1.1981, -16.5043)
+
+[node name="ZoneTransit_3D" parent="." instance=ExtResource("3_4d2dw")]
+transform = Transform3D(11.9473, 0, 0, 0, 5.28681, 0, 0, 0, 3.83949, 0.884638, 0.66306, 26.8795)
+
+[node name="ZoneTransit_3D2" parent="." instance=ExtResource("3_4d2dw")]
+transform = Transform3D(-5.22232e-07, 0, -3.83949, 0, 5.28681, 0, 11.9473, 0, -1.67829e-07, 25.4897, 0.66306, 1.60948)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uh5mh")
+camera_attributes = SubResource("CameraAttributesPractical_u1y3m")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.210415, -0.599067, -0.772557, 0.795187, -0.354816, 0.491714, -0.568685, -0.717792, 0.401712, -2.00011, 5.85763, -2.36805)
+light_energy = 2.829
+shadow_enabled = true
+
+[node name="mesh" type="Node" parent="."]
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="mesh"]
+transform = Transform3D(14.3065, 0, 0, 0, 5.2579, 0, 0, 0, 8.08107, -11.0527, 2, -1)
+mesh = SubResource("BoxMesh_6pwct")
+
+[node name="CSGMesh3D5" type="CSGMesh3D" parent="mesh"]
+transform = Transform3D(27.4224, 0, 0, 0, 8.7469, 0, 0, 0, 10.2459, -18.2044, 2, -23.5917)
+mesh = SubResource("BoxMesh_6pwct")
+material = SubResource("ORMMaterial3D_8jj4y")
+metadata/_edit_group_ = true
+
+[node name="CSGMesh3D6" type="CSGMesh3D" parent="mesh"]
+transform = Transform3D(27.4224, 0, 0, 0, 8.7469, 0, 0, 0, 10.2459, 19.3808, 2, -23.5917)
+mesh = SubResource("BoxMesh_6pwct")
+material = SubResource("ORMMaterial3D_8jj4y")
+metadata/_edit_group_ = true
+
+[node name="CSGMesh3D7" type="CSGMesh3D" parent="mesh"]
+transform = Transform3D(27.4224, 0, 0, 0, 8.7469, 0, 0, 0, 10.2459, -18.2044, 2, 29.0136)
+mesh = SubResource("BoxMesh_6pwct")
+material = SubResource("ORMMaterial3D_8jj4y")
+metadata/_edit_group_ = true
+
+[node name="CSGMesh3D8" type="CSGMesh3D" parent="mesh"]
+transform = Transform3D(27.4224, 0, 0, 0, 8.7469, 0, 0, 0, 10.2459, 19.3808, 2, 29.0136)
+mesh = SubResource("BoxMesh_6pwct")
+material = SubResource("ORMMaterial3D_8jj4y")
+metadata/_edit_group_ = true
+
+[node name="CSGMesh3D9" type="CSGMesh3D" parent="mesh"]
+transform = Transform3D(-1.19867e-06, 0, -10.2459, 0, 8.7469, 0, 27.4224, 0, -4.47861e-07, 26.8909, 2, -16.0817)
+mesh = SubResource("BoxMesh_6pwct")
+material = SubResource("ORMMaterial3D_8jj4y")
+metadata/_edit_group_ = true
+
+[node name="CSGMesh3D10" type="CSGMesh3D" parent="mesh"]
+transform = Transform3D(-1.19867e-06, 0, -10.2459, 0, 8.7469, 0, 27.4224, 0, -4.47861e-07, 26.8909, 2, 21.5036)
+mesh = SubResource("BoxMesh_6pwct")
+material = SubResource("ORMMaterial3D_8jj4y")
+metadata/_edit_group_ = true
+
+[node name="CSGMesh3D11" type="CSGMesh3D" parent="mesh"]
+transform = Transform3D(-1.19867e-06, 0, -10.2459, 0, 8.7469, 0, 27.4224, 0, -4.47861e-07, -25.7145, 2, -16.0817)
+mesh = SubResource("BoxMesh_6pwct")
+material = SubResource("ORMMaterial3D_8jj4y")
+metadata/_edit_group_ = true
+
+[node name="CSGMesh3D12" type="CSGMesh3D" parent="mesh"]
+transform = Transform3D(-1.19867e-06, 0, -10.2459, 0, 8.7469, 0, 27.4224, 0, -4.47861e-07, -25.7145, 2, 21.5036)
+mesh = SubResource("BoxMesh_6pwct")
+material = SubResource("ORMMaterial3D_8jj4y")
+metadata/_edit_group_ = true
+
+[node name="CSGMesh3D13" type="CSGMesh3D" parent="mesh"]
+transform = Transform3D(-1.19867e-06, 0, -4.20743, 0, 8.7469, 0, 27.4224, 0, -1.83913e-07, -24.3558, 1.17863, 2.52157)
+mesh = SubResource("BoxMesh_6pwct")
+material = SubResource("ORMMaterial3D_8jj4y")
+metadata/_edit_group_ = true
+
+[node name="CSGMesh3D14" type="CSGMesh3D" parent="mesh"]
+transform = Transform3D(-27.4224, 0, 3.67826e-07, 0, 8.7469, 0, -2.39735e-06, 0, -4.20743, 0.231462, 1.17863, -25.1636)
+mesh = SubResource("BoxMesh_6pwct")
+material = SubResource("ORMMaterial3D_8jj4y")
+metadata/_edit_group_ = true
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="mesh"]
+transform = Transform3D(14.3065, 0, 0, 0, 5.2579, 0, 0, 0, 8.08107, 10.682, 0.178623, -11.2804)
+mesh = SubResource("BoxMesh_6pwct")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="mesh"]
+transform = Transform3D(14.3065, 0, 0, 0, 5.2579, 0, 0, 0, 8.08107, 12.6989, 0.178623, 5.64597)
+mesh = SubResource("BoxMesh_6pwct")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="mesh"]
+transform = Transform3D(27.8937, 0, 0, 0, 1, 0, 0, 0, 28.4289, 0, 0, 0)
+mesh = SubResource("PlaneMesh_2c16j")
+material = SubResource("ORMMaterial3D_m0i4q")

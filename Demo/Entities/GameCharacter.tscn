@@ -1,0 +1,71 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource type="Script" path="res://addons/lambdaengine/Systems/Character/Character_Manager.gd" id="1_f1mhd"]
+[ext_resource type="Script" path="res://addons/lambdaengine/Systems/Attribute/Attribute_Manager.gd" id="2_fqxdo"]
+[ext_resource type="Script" path="res://addons/lambdaengine/Systems/Attribute/Attribute_Instance.gd" id="3_wa602"]
+[ext_resource type="Resource" path="res://Demo/Data/Attirbutes/HP.tres" id="4_y7ros"]
+[ext_resource type="Resource" path="res://Demo/Data/Attirbutes/MP.tres" id="5_1ul6c"]
+[ext_resource type="Script" path="res://addons/lambdaengine/Systems/Ability/Ability_Manager.gd" id="6_sqmx2"]
+[ext_resource type="Script" path="res://addons/lambdaengine/Systems/Equipment/Equipment_Manager.gd" id="7_ts0fn"]
+[ext_resource type="Script" path="res://addons/lambdaengine/Systems/Equipment/Equipment_Slot.gd" id="8_r80jo"]
+[ext_resource type="Script" path="res://addons/lambdaengine/Systems/Inventory/Inventory_Manager.gd" id="9_ifths"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5wfyw"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_f2dxw"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_ax1mr"]
+
+[node name="Character" type="CharacterBody3D"]
+
+[node name="Character_Manager" type="Node" parent="." node_paths=PackedStringArray("Body3D")]
+script = ExtResource("1_f1mhd")
+Type = "3D"
+Body3D = NodePath("..")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_5wfyw")
+
+[node name="Attributes" type="Node" parent="."]
+script = ExtResource("2_fqxdo")
+
+[node name="HP" type="Node" parent="Attributes"]
+script = ExtResource("3_wa602")
+attribute = ExtResource("4_y7ros")
+
+[node name="MP" type="Node" parent="Attributes"]
+script = ExtResource("3_wa602")
+attribute = ExtResource("5_1ul6c")
+
+[node name="Abilities" type="Node" parent="."]
+script = ExtResource("6_sqmx2")
+
+[node name="Equipment" type="Node" parent="."]
+script = ExtResource("7_ts0fn")
+
+[node name="Slot_Weapon" type="Node" parent="Equipment"]
+script = ExtResource("8_r80jo")
+Slot_Name = null
+
+[node name="Slot_Armor" type="Node" parent="Equipment"]
+script = ExtResource("8_r80jo")
+Slot_Name = null
+
+[node name="Slot_Accessory1" type="Node" parent="Equipment"]
+script = ExtResource("8_r80jo")
+Slot_Name = null
+
+[node name="Slot_Accessory2" type="Node" parent="Equipment"]
+script = ExtResource("8_r80jo")
+Slot_Name = null
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource("9_ifths")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(0.75558, 0, 0, 0, 0.973731, 0, 0, 0, 0.743722, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_f2dxw")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="CSGMesh3D"]
+transform = Transform3D(0.792596, 0, 0, 0, -4.29403e-08, 0.290447, 0, -0.98236, -1.26958e-08, 0, 0.420445, -0.692461)
+mesh = SubResource("PrismMesh_ax1mr")

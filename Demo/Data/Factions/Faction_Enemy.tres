@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Faction" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/lambdaengine/Systems/Faction/Faction.gd" id="1_3tkpm"]
+
+[resource]
+script = ExtResource("1_3tkpm")
+name = "Enemy"
+color = Color(1, 0.0392157, 0.0235294, 1)

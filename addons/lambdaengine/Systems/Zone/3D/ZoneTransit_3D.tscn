@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4ih2trt5iv8g"]
+
+[ext_resource type="Script" path="res://addons/lambdaengine/Systems/Zone/Zone_Transit.gd" id="1_uequw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k156d"]
+
+[node name="ZoneTransit_3D" type="Area3D"]
+
+[node name="Transit" type="Node" parent="."]
+script = ExtResource("1_uequw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_k156d")

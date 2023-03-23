@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Attribute" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/lambdaengine/Systems/Attribute/Attribute.gd" id="1_5g1jy"]
+
+[resource]
+script = ExtResource("1_5g1jy")
+Name = "M-DEF"
+Attribute = Color(0, 0, 0, 1)
+IsStatic = true
